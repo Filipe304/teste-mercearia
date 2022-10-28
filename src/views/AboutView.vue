@@ -96,7 +96,7 @@ export default {
 .fundo-principal {
   opacity: 1;
   background-size: cover;
-  height: 586px;
+  height: 657px;
   width: 1360px;
 }
 .menu-vertical{
@@ -108,4 +108,5 @@ export default {
 .conteudo-geral{
   height: 445px;
 }
+
 </style>
