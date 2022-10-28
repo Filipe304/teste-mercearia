@@ -16,7 +16,7 @@
           plain
           @click="remove"
           class="botao-home"
-          router-link to="/PaginaPrincipal"
+          router-link to="/about"
           >Entrar</v-btn>
       </v-col>
     </v-row>
