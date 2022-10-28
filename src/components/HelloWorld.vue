@@ -65,4 +65,10 @@
   font-size: 34px;
   text-shadow: 0px 2px 4px black;
 }
+@media screen and (max-width:480px) {
+  .botao-home{
+    margin-top: 80px;
+  }
+  
+}
 </style>
