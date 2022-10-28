@@ -59,7 +59,7 @@
         <v-row cols="12">
           <v-col md="12">
             <v-card elevation="10" class="header-principal">
-            header
+            header here
             </v-card>
           </v-col>
         </v-row>
