@@ -9,7 +9,7 @@
 
     <v-row cols="12">
       <v-col md="2" style="padding: 0px;">
-        <v-card elevation="10" class="menu-vertical">
+        <v-card elevation="10" class="menu-vertical" style=" align-items: flex-start;">
           <v-card style="
           height: 250px;
           width: 230px;
