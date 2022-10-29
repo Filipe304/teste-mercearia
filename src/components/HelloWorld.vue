@@ -51,12 +51,18 @@
   min-width: 64px;
   width: 200px;
   padding: 0 16px;
+  margin-top: 12%;
+  border-radius: 10px;
   font-family:'KoHo', sans-serif;
+}
+.botao-home:hover:active {
+  background-color: #e4a17f;
+  transition-delay: 0.5s;
 }
 .title-home{
   font-size: 120px;
   text-shadow: 0px 2px 4px black;
-  margin-top: 50px;
+  margin-top: 15%;
   font-family: 'Caveat', cursive;
   font-weight: 300;
 }
@@ -65,10 +71,42 @@
   font-size: 34px;
   text-shadow: 0px 2px 4px black;
 }
-@media screen and (max-width:480px) {
+
+  
+  @media screen and (max-width: 1366px) {
+  .homepage {
+    height: 657px;
+  }
+  .title-home{
+    margin-top: 12%;
+  }
+  .botao-home {
+    margin-top: 8%;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+}
+
+@media screen and (max-width: 801px) {
+}
+
+@media screen and (max-width: 600px) {
+}
+
+@media screen and (max-width: 480px){
+  .homepage{
+    height: 800px;
+  }
   .botao-home{
     margin-top: 80px;
   }
-  
+  .title-home{
+    font-size: 95px;
+    text-align: center;
+  }
 }
+@media screen and (max-width: 320px) {
+}
+
 </style>

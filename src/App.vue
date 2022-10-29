@@ -33,11 +33,9 @@ nav {
   background-image:url("https://www.jacalculei.com.br/wp-content/uploads/2021/09/Como-abrir-uma-padaria-.png");
   opacity: 1;
   background-size: cover;
-  height: 586px;
+  height: 789px;
 }
-@media screen and (max-width: 480px){
-  .homepage{
-    height: 800px;
-  }
-}
+
+
+
 </style>

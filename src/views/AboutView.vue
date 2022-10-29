@@ -55,8 +55,8 @@
         </v-card>
       </v-col>
 
-      <v-col md="10" style="padding: 24px;">
-        <v-row cols="12">
+      <v-col md="10" class="testando" style="padding: 24px;">
+        <v-row cols="12" >
           <v-col md="12">
             <v-card elevation="10" class="header-principal">
             header here
@@ -96,11 +96,12 @@ export default {
 .fundo-principal {
   opacity: 1;
   background-size: cover;
-  height: 657px;
-  width: 1360px;
+  height: 789px;
+  width: 100%;
 }
 .menu-vertical{
   height: 588px;
+  width: 230px;
   flex-direction: column;
   display: flex;
   align-items: center;
@@ -109,4 +110,42 @@ export default {
   height: 445px;
 }
 
+@media screen and (max-width: 1366px) {
+  .fundo-principal{
+    height: 657px;
+    width: 100%;
+  }
+
+@media screen and (max-width: 1025px) {
+}
+
+@media screen and (max-width: 801px) {
+}
+
+@media screen and (max-width: 600px) {
+  .testando {
+    min-width: 360px;
+  }
+}
+
+@media screen and (max-width: 480px){
+  .fundo-principal{
+    height: 100%;
+    width: 100%;
+  }
+  .header-principal {
+    width: 90%;
+  }
+  .conteudo-geral{
+    width: 90%;
+  }
+  .menu-vertical{
+    margin-left: 15%;
+    margin-top: 12%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+}
+}
 </style>
