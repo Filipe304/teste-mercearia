@@ -106,14 +106,21 @@
         <v-row cols="12">
           <v-col md="12">
 
-            <v-card elevation="10" class="conteudo-geral">
-              <v-title-card style="color: #000000;">
-                aqui title  
+            <v-card elevation="10" class="conteudo-geral" style="padding: 20px;">
+              <v-title-card style="color: #000000; font-size: 32px; padding:15px;">
+                Titulo Página 
             </v-title-card>
 
+            <v-card class="card-data"  >
+              <v-text-field  class="conteudo-card_data" hide-selected  v-model="dateFormated" label="Selecione a data" 
+                  prepend-icon="mdi-calendar" v-bind="attrs" v-on="on">
+              </v-text-field>
+            </v-card>
+
             <div>
-              aqui ...
+              Alguma coisa aqui ...
             </div>
+
 
             </v-card> 
           </v-col>
@@ -191,6 +198,15 @@ export default {
   
 }
 
+.card-data {
+  width: 200px;
+  margin-left: 20px;
+  border-radius: 10px;
+}
+.conteudo-card_data {
+  width: 180px;
+  margin-left: 8px;
+}
 
 @media screen and (max-width: 1366px) {
   .fundo-principal{
