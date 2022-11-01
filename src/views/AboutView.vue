@@ -45,14 +45,7 @@
           plain
         >
         <v-icon>mdi-cake</v-icon>
-        Produtos</v-btn>
-        <v-btn
-          elevation="8"
-          plain
-          @click="goBack" 
-        >
-        <v-icon>mdi-arrow-left-bold-outline</v-icon>
-        Sair</v-btn> -->
+        Produtos</v-btn>  -->
 
         <!-- INICIO NAVBAR -->
         <v-navigation-drawer
@@ -84,6 +77,13 @@
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+        <v-btn
+          elevation="8"
+          plain
+          @click="goBack" 
+        >
+        <v-icon>mdi-arrow-left-bold-outline</v-icon>
+        Sair</v-btn>
       </v-list>
     </v-navigation-drawer>
     <!-- FIM NAVBAR -->
@@ -151,10 +151,13 @@ export default {
           { title: 'Produtos',
           icon: 'mdi-cake',
           link: ''},
+<<<<<<< HEAD
 
           { title: 'Sair',
           icon: 'mdi-arrow-left-bold-outline',
           link: 'Home'}
+=======
+>>>>>>> 905ee75 (reparo btn de sair)
         ],
         mini: true,
       }
