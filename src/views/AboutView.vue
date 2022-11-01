@@ -76,7 +76,7 @@
           link
         >
           <v-list-item-icon>
-            <v-icon style="color: pink;">{{ item.icon }}</v-icon>
+            <v-icon style="color: #F48FB1;">{{ item.icon }}</v-icon>
           </v-list-item-icon>
 
           <v-list-item-content>
@@ -154,7 +154,7 @@ export default {
 
           { title: 'Sair',
           icon: 'mdi-arrow-left-bold-outline',
-          link: 'goBack'}
+          link: 'Home'}
         ],
         mini: true,
       }
