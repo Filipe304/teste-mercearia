@@ -18,10 +18,11 @@
           top: -20px;">
           <v-img
             src="@/assets/BOLOS DA VOVÓ.png"
-            style="top: 25px;"
+            style="top: 20px;"
           ></v-img>
           </v-card>
-        <v-btn
+
+        <!-- <v-btn
           elevation="8"
           plain
         >
@@ -51,7 +52,42 @@
           @click="goBack" 
         >
         <v-icon>mdi-arrow-left-bold-outline</v-icon>
-        Sair</v-btn>
+        Sair</v-btn> -->
+
+        <!-- INICIO NAVBAR -->
+        <v-navigation-drawer
+      v-model="drawer"
+      permanent
+    >
+      <v-list-item class="px-2">
+        <v-list-item-avatar >
+          <v-img class="img-avatar" src="https://randomuser.me/api/portraits/men/85.jpg"></v-img>
+        </v-list-item-avatar>
+
+        <v-list-item-title>João - Gerente</v-list-item-title>
+      </v-list-item>
+
+      <v-divider></v-divider>
+
+      <v-list dense>
+        <v-list-item
+          v-for="item in items"
+          :key="item.title"
+          link
+        >
+          <v-list-item-icon>
+            <v-icon style="color: pink;">{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <a @click="$util.go(item.link)"> </a>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+    <!-- FIM NAVBAR -->
+
         </v-card>
       </v-col>
 
@@ -59,13 +95,26 @@
         <v-row cols="12" >
           <v-col md="12">
             <v-card elevation="10" class="header-principal">
-            header here
+            Delícias da Vovó
             </v-card>
+          
+
+          
+
           </v-col>
         </v-row>
         <v-row cols="12">
           <v-col md="12">
+
             <v-card elevation="10" class="conteudo-geral">
+              <v-title-card style="color: #000000;">
+                aqui title  
+            </v-title-card>
+
+            <div>
+              aqui ...
+            </div>
+
             </v-card> 
           </v-col>
         </v-row>
@@ -82,7 +131,34 @@ export default {
     goBack(){
       return this.$router.go(-1);
     }
-  }
+  },
+  data () {
+      return {
+        drawer: true,
+        items: [
+          { title: 'Dashboard', 
+          icon: 'mdi-ice-cream',
+          link: ''},
+
+          { title: 'Planejamento',
+          icon: 'mdi-candy',
+          link: ''},
+
+          { title: 'Despesas', icon: 
+          'mdi-cupcake',
+          link: '' },
+
+          { title: 'Produtos',
+          icon: 'mdi-cake',
+          link: ''},
+
+          { title: 'Sair',
+          icon: 'mdi-arrow-left-bold-outline',
+          link: 'goBack'}
+        ],
+        mini: true,
+      }
+    },
 };
 </script>
 
@@ -92,6 +168,10 @@ export default {
 }
 .header-principal{
     height: 70px;
+    font-family: 'Caveat', cursive;
+    font-size: 35px;
+    padding: inherit;
+    text-align:left;
 }
 .fundo-principal {
   opacity: 1;
@@ -107,13 +187,18 @@ export default {
   align-items: center;
 }
 .conteudo-geral{
-  height: 445px;
+  height: 468px;
+  
 }
+
 
 @media screen and (max-width: 1366px) {
   .fundo-principal{
     height: 657px;
     width: 100%;
+  }
+  .conteudo-geral{
+    width: 1080px !important;
   }
 
 @media screen and (max-width: 1025px) {
@@ -121,12 +206,24 @@ export default {
 
 @media screen and (max-width: 801px) {
 }
-
+.menu-vertical {
+    height: 958px;
+    width: 230px;
+    margin-top: 19%;
+  }
+  .fundo-principal
+  {
+    height: 1025px;
+  }
+  .conteudo-geral{
+    height: 885px;
+    width: 490px;
+  }
+}
 @media screen and (max-width: 600px) {
   .testando {
     min-width: 360px;
   }
-}
 
 @media screen and (max-width: 480px){
   .fundo-principal{
