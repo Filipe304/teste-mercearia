@@ -13,12 +13,11 @@
           <v-card style="
           height: 250px;
           width: 230px;
-          background-color: rgb(247, 214, 196);
           bottom: 0;
           top: -20px;">
           <v-img
-            src="@/assets/BOLOS DA VOVÓ.png"
-            style="top: 20px;"
+            src="@/assets/CAKE-STYLE.png"
+            style="left: 10px;width: 90%;height: 100%;"
           ></v-img>
           </v-card>
         <!-- INICIO NAVBAR -->
@@ -62,10 +61,53 @@
       </v-col>
 
       <v-col md="10" class="testando" style="padding: 24px;">
-        <v-row cols="12" >
+        <v-row cols="12">
+        <!--/headerMain-->
           <v-col md="12">
-            <v-card elevation="10" class="header-principal">
-            Delícias da Vovó
+            <v-card class="overflow-hidden">
+              <v-app-bar
+                absolute
+                dark
+                shrink-on-scroll
+                prominent
+                src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimg1.cookinglight.timeinc.net%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fmedium_2x%2Fpublic%2F1542062283%2Fchocolate-and-cream-layer-cake-1812-cover.jpg%3Fitok%3DrEWL7AIN"
+                fade-img-on-scroll
+                scroll-target="#scrolling-techniques-3"
+              >
+                <template v-slot:img="{ props }">
+                  <v-img
+                    v-bind="props"
+                    gradient="to top right, rgba(28,28,28,.9), rgba(28,28,28,.1)"
+                  ></v-img>
+                </template>
+
+                <v-app-bar-title>Delícias da Vovó</v-app-bar-title>
+
+                <v-spacer></v-spacer>
+
+                <v-btn href="https://www.instagram.com/nathsakunsler/" target="_blank" icon>
+                  <v-icon style="color: #f800c9">mdi-heart</v-icon>
+                </v-btn>
+
+                <v-btn href="https://www.instagram.com/farthuur/" target="_blank" icon>
+                  <v-icon style="color: #0007ff">mdi-heart</v-icon>
+                </v-btn>
+
+                <template v-slot:extension>
+                  <v-tabs align-with-title>
+                    <v-tab>Tab 1</v-tab>
+                    <v-tab>Tab 2</v-tab>
+                    <v-tab>Tab 3</v-tab>
+                  </v-tabs>
+                </template>
+              </v-app-bar>
+              <v-sheet
+                id="scrolling-techniques-3"
+                class="overflow-y-auto"
+                max-height="200"
+              >
+                <v-container style="height: 1000px;"></v-container>
+              </v-sheet>
             </v-card>
           </v-col>
         </v-row>
@@ -97,32 +139,44 @@
 
             <v-row cols="12">
               <v-col md="6">
-                <canvas id="myChart"></canvas>
+                <canvas 
+                id="myChart" 
+                style="box-shadow: rgb(0 0 0 / 30%) 0px 19px 38px, rgb(0 0 0 / 22%) 0px 15px 12px;
+                border-radius: 10px;"></canvas>
               </v-col>
 
 
-              <v-col md="3" pb="5">
-                <v-card elevation="10" outlined style="margin-bottom: 20px; box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;">
-                  <v-card-text>
-                    Entrou<br>R$17632,89
+              <v-col md="3">
+                <v-card elevation="10" outlined style="border-radius: 10px; margin-bottom: 20px; box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;">
+                  <v-card-text style="font: status-bar;">
+                    Entrou
+                  <v-icon style="color: blue">mdi-arrow-top-right-thick</v-icon>
+                    <br>
+                    R$17632,89
                   </v-card-text>
                 </v-card>
-                <v-card elevation="10" outlined style="margin-bottom: 20px; box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;">  
-                  <v-card-text>
-                    Despesas<br>R$12348,54
+                <v-card elevation="10" outlined style="border-radius: 10px; margin-bottom: 20px; box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;"> 
+                  <v-card-text style="font: status-bar;">
+                    Lucro
+                    <v-icon style="color: green;">mdi-cash-check</v-icon>
+                    <br>R$5284,35
                   </v-card-text>
                 </v-card>
                 </v-col>
 
                 <v-col md="3">
-                <v-card elevation="10" outlined style="margin-bottom: 20px; box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;"> 
-                  <v-card-text>
-                    Lucro<br>R$5284,35
+                <v-card elevation="10" outlined style="border-radius: 10px; margin-bottom: 20px; box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;">  
+                  <v-card-text style="font: status-bar;">
+                    Despesas
+                    <v-icon style="color: red;">mdi-arrow-bottom-left-thick</v-icon>
+                    <br>R$12348,54
                   </v-card-text>
                 </v-card>
-                <v-card elevation="10" outlined style="margin-bottom: 20px; box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;"> 
-                  <v-card-text>
-                    Caixa<br>R$2389,32
+                <v-card elevation="10" outlined style="border-radius: 10px; margin-bottom: 20px; box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;"> 
+                  <v-card-text style="font: status-bar;">
+                    Caixa
+                    <v-icon style="color: black;">mdi-cash-register</v-icon>
+                    <br>R$2389,32
                   </v-card-text>
                 </v-card>
               </v-col>
@@ -153,7 +207,7 @@
                       <v-row>
                         <v-col>
                           <v-card-title>Despesas</v-card-title>
-                          <v-card-text>
+                          <v-card-text style="display: flex;align-items: flex-start;justify-content: flex-start;">
                             Mantimentos: R$ 4.356,00<br>
                             Energia: R$ 2.879,00<br>
                             Aluguél: R$ 4.561,00<br>
@@ -167,14 +221,15 @@
                         </v-col>
                         <v-col>
                           <v-card-title>Valor Recebido</v-card-title>
-                          <v-card-text>
-                            Dinheiro<br>R$ 2.876,57
-                            Cartão<br>R$ 14.756,32
+                          <v-card-text style="display: flex;align-items: flex-start;justify-content: flex-start;">
+                            Dinheiro: R$ 2.876,57<br>
+                            Cartão: R$ 14.756,32
                           </v-card-text>
                         </v-col>
                         <v-col>
                           <v-card-title>Valor em Caixa</v-card-title>
-                          <v-card-text>R$ 2.389,32</v-card-text>
+                          <v-card-text style="display: flex;align-items: flex-start;justify-content: flex-start;">V
+                          alor restante: R$ 2.389,32</v-card-text>
                         </v-col>
                     </v-row>
                   </div>
@@ -231,21 +286,21 @@ export default {
       const myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Entrou', 'Despesas', 'Lucro', 'Caixa'],
+        labels: ['Bruto', 'Despesas', 'Lucro', 'Caixa'],
         datasets: [{
-            label: '# of Votes',
+            label: 'Financeiro',
             data: [17632.89, 12348.54, 5284.35, 2389.32 ],
             backgroundColor: [
-                'darkgreen',
-                'darkred',
-                'darkblue',
-                'yellow'
+                '#D2691E',
+                '#B22222',
+                '#8B4513',
+                '#CD5C5C'
             ],
             borderColor: [
-                'green',
-                'red',
-                'blue',
-                'purple'
+                '#D2691E',
+                '#B22222',
+                '#8B4513',
+                '#CD5C5C'
             ],
             borderWidth: 1
         }]
@@ -317,6 +372,7 @@ export default {
   }
   .conteudo-geral{
     width: 1080px !important;
+    height: 753px !important;
   }
 
 @media screen and (max-width: 1025px) {
