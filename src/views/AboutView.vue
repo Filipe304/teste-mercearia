@@ -21,32 +21,6 @@
             style="top: 20px;"
           ></v-img>
           </v-card>
-
-        <!-- <v-btn
-          elevation="8"
-          plain
-        >
-        <v-icon>mdi-ice-cream</v-icon>
-        Dashboard</v-btn>
-        <v-btn
-          elevation="8"
-          plain
-        >
-        <v-icon>mdi-candy</v-icon>
-        Planejamento</v-btn>
-        <v-btn
-          elevation="8"
-          plain
-        >
-        <v-icon>mdi-cupcake</v-icon>
-        Despesas</v-btn>
-        <v-btn
-          elevation="8"
-          plain
-        >
-        <v-icon>mdi-cake</v-icon>
-        Produtos</v-btn>  -->
-
         <!-- INICIO NAVBAR -->
         <v-navigation-drawer
       v-model="drawer"
@@ -77,13 +51,9 @@
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-btn
-          elevation="8"
-          plain
-          @click="goBack" 
-        >
         <v-icon>mdi-arrow-left-bold-outline</v-icon>
-        Sair</v-btn>
+        <router-link to="/">Sair
+        </router-link> 
       </v-list>
     </v-navigation-drawer>
     <!-- FIM NAVBAR -->
@@ -100,23 +70,63 @@
           </v-col>
         </v-row>
         <v-row cols="12">
-          <v-col md="12">
+          <v-col md="12" style="height: 65px;">
 
             <v-card elevation="10" class="conteudo-geral" style="padding: 20px;">
               <v-title-card style="color: #000000; font-size: 32px; padding:15px;">
-                Titulo Página 
+                Dashboard
             </v-title-card>
 
-            <v-card class="card-data"  >
+            <!--v-card class="card-data"  >
               <v-text-field  class="conteudo-card_data" hide-selected  v-model="dateFormated" label="Selecione a data" 
                   prepend-icon="mdi-calendar" v-bind="attrs" v-on="on">
               </v-text-field>
-            </v-card>
+            </v-card-->
 
-            <div>
-              Alguma coisa aqui ...
-            </div>
+            <v-row cols="12">
+              <v-col md="4">
+                Escolha o periodo da consulta:
+                <v-select
+                :items="items"
+                label="Mês"
+                dense
+                ></v-select>
+              </v-col>
+            </v-row>
 
+
+            <v-row cols="12">
+              <v-col md="6">
+                <canvas id="myChart"></canvas>
+              </v-col>
+
+
+              <v-col md="3" pb="5">
+                <v-card elevation="10" outlined style="margin-bottom: 20px; box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;">
+                  <v-card-text>
+                    Entrou: R$17632,89
+                  </v-card-text>
+                </v-card>
+                <v-card elevation="10" outlined style="margin-bottom: 20px; box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;">  
+                  <v-card-text>
+                    Despesas R$12348,54
+                  </v-card-text>
+                </v-card>
+                </v-col>
+
+                <v-col md="3">
+                <v-card elevation="10" outlined style="margin-bottom: 20px; box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;"> 
+                  <v-card-text>
+                    Lucro R$5284,35
+                  </v-card-text>
+                </v-card>
+                <v-card elevation="10" outlined style="margin-bottom: 20px; box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;"> 
+                  <v-card-text>
+                    Caixa R$2389,32
+                  </v-card-text>
+                </v-card>
+              </v-col>
+            </v-row>
 
             </v-card> 
           </v-col>
@@ -128,7 +138,9 @@
   </v-container>
 </template>
 <script src="path/to/chartjs/dist/chart.js"></script>
+<script src="../IndexedDB.js"></script>
 <script>
+//import bancoDados from '../IndexedDB.js'
 export default {
   methods: {
     goBack(){
@@ -162,27 +174,23 @@ export default {
       const ctx = document.getElementById('myChart');
       const Chart = require('chart.js');
       const myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'pie',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['Entrou', 'Despesas', 'Lucro', 'Caixa'],
         datasets: [{
             label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [17632.89, 12348.54, 5284.35, 2389.32 ],
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'green',
+                'red',
+                'blue',
+                'purple'
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'green',
+                'red',
+                'blue',
+                'purple'
             ],
             borderWidth: 1
         }]
@@ -201,15 +209,20 @@ export default {
 </script>
 
 <style scoped>
+.v-card-text {
+  padding: 40px;
+}
 .v-btn > .v-btn__content .v-icon {
     color: #ff002d;
 }
-.header-principal{
+.header-principal[data-v-4cebd208] {
     height: 70px;
     font-family: 'Caveat', cursive;
     font-size: 35px;
     padding: inherit;
-    text-align:left;
+    text-align: left;
+    width: 1080px !important;
+    background: lightgray;
 }
 .fundo-principal {
   opacity: 1;
@@ -293,3 +306,18 @@ export default {
 }
 }
 </style>
+Dona Mafalda tem uma mercearia a anos e sua neta questionou ela sobre os seus ganhos;
+ Sem saber sobre a resposta, a vovó falou: Eu sempre pago minhas contas e o meu salário às vezes vem variável. 
+ Em caixa havia R$ 2.389,32 
+ e no mês de Março eu tive um gasto de R$ 4.356,00 em mantimentos para fazer os meus bolos, 
+ recebi R$ 2.876,57 em dinheiro 
+ e R$ 14.756,32 em cartão. 
+ Meu salário é de R$ 3.566,00, 
+ minha energia é R$ 2.879,00(Forno elétrico), 
+ meu aluguel é R$ 4.561,00, 
+ gasto R$ 150,00 com água 
+ e R$ 99,00 com internet, 
+ R$ 659,54 com gasolina para entregar os bolos 
+ e 2.500,00 com o meu funcionário. 
+ Eu também pago R$ 600,00 de contabilidade 
+ e R$900,00 em impostos, INSS e Simples Nacional.
