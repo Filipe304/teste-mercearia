@@ -104,12 +104,12 @@
               <v-col md="3" pb="5">
                 <v-card elevation="10" outlined style="margin-bottom: 20px; box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;">
                   <v-card-text>
-                    Entrou: R$17632,89
+                    Entrou<br>R$17632,89
                   </v-card-text>
                 </v-card>
                 <v-card elevation="10" outlined style="margin-bottom: 20px; box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;">  
                   <v-card-text>
-                    Despesas R$12348,54
+                    Despesas<br>R$12348,54
                   </v-card-text>
                 </v-card>
                 </v-col>
@@ -117,14 +117,68 @@
                 <v-col md="3">
                 <v-card elevation="10" outlined style="margin-bottom: 20px; box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;"> 
                   <v-card-text>
-                    Lucro R$5284,35
+                    Lucro<br>R$5284,35
                   </v-card-text>
                 </v-card>
                 <v-card elevation="10" outlined style="margin-bottom: 20px; box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;"> 
                   <v-card-text>
-                    Caixa R$2389,32
+                    Caixa<br>R$2389,32
                   </v-card-text>
                 </v-card>
+              </v-col>
+            </v-row>
+
+            <v-row cols="12">
+              <v-col md="12">
+                <v-card-actions>
+                  <v-btn
+                    color="orange lighten-2"
+                    text
+                  >
+                    Detalhes
+                  </v-btn>
+
+                  <v-spacer></v-spacer>
+
+                  <v-btn style="right: 900px;"
+                    icon
+                    @click="show = !show"
+                  >
+                    <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
+                  </v-btn>
+                </v-card-actions>
+                <v-expand-transition>
+                  <div v-show="show">
+                    <v-divider></v-divider>
+                      <v-row>
+                        <v-col>
+                          <v-card-title>Despesas</v-card-title>
+                          <v-card-text>
+                            Mantimentos: R$ 4.356,00<br>
+                            Energia: R$ 2.879,00<br>
+                            Aluguél: R$ 4.561,00<br>
+                            Agua: R$ 150,00<br>
+                            Internet: R$ 99,00<br>
+                            Gasolina: R$ 659,54<br>
+                            Salario funcionário: R$2.500,00<br>
+                            Contabilidade: R$ 600,00<br>
+                            Impostos: R$900,00
+                          </v-card-text>
+                        </v-col>
+                        <v-col>
+                          <v-card-title>Valor Recebido</v-card-title>
+                          <v-card-text>
+                            Dinheiro<br>R$ 2.876,57
+                            Cartão<br>R$ 14.756,32
+                          </v-card-text>
+                        </v-col>
+                        <v-col>
+                          <v-card-title>Valor em Caixa</v-card-title>
+                          <v-card-text>R$ 2.389,32</v-card-text>
+                        </v-col>
+                    </v-row>
+                  </div>
+                </v-expand-transition>
               </v-col>
             </v-row>
 
@@ -149,6 +203,7 @@ export default {
   },
   data () {
       return {
+        show: false,
         drawer: true,
         items: [
           { title: 'Dashboard', 
@@ -174,17 +229,17 @@ export default {
       const ctx = document.getElementById('myChart');
       const Chart = require('chart.js');
       const myChart = new Chart(ctx, {
-    type: 'pie',
+    type: 'bar',
     data: {
         labels: ['Entrou', 'Despesas', 'Lucro', 'Caixa'],
         datasets: [{
             label: '# of Votes',
             data: [17632.89, 12348.54, 5284.35, 2389.32 ],
             backgroundColor: [
-                'green',
-                'red',
-                'blue',
-                'purple'
+                'darkgreen',
+                'darkred',
+                'darkblue',
+                'yellow'
             ],
             borderColor: [
                 'green',
@@ -209,6 +264,9 @@ export default {
 </script>
 
 <style scoped>
+.v-card-title{
+  font-weight: bold;
+}
 .v-card-text {
   padding: 40px;
 }
@@ -308,7 +366,7 @@ export default {
 </style>
 Dona Mafalda tem uma mercearia a anos e sua neta questionou ela sobre os seus ganhos;
  Sem saber sobre a resposta, a vovó falou: Eu sempre pago minhas contas e o meu salário às vezes vem variável. 
- Em caixa havia R$ 2.389,32 
+ Em caixa havia R$ 2.389,32
  e no mês de Março eu tive um gasto de R$ 4.356,00 em mantimentos para fazer os meus bolos, 
  recebi R$ 2.876,57 em dinheiro 
  e R$ 14.756,32 em cartão. 
