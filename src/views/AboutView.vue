@@ -115,9 +115,9 @@
           <v-col md="12" style="height: 65px;">
 
             <v-card elevation="10" class="conteudo-geral" style="padding: 20px;">
-              <v-title-card style="color: #000000; font-size: 32px; padding:15px;">
+              <v-card-title style="color: #000000; font-size: 32px; padding:15px;">
                 Dashboard
-            </v-title-card>
+            </v-card-title>
 
             <!--v-card class="card-data"  >
               <v-text-field  class="conteudo-card_data" hide-selected  v-model="dateFormated" label="Selecione a data" 
@@ -242,13 +242,12 @@
         </v-row>
       </v-col>
     </v-row>
-
   </div>
   </v-container>
 </template>
-<script src="path/to/chartjs/dist/chart.js"></script>
 <script src="../IndexedDB.js"></script>
 <script>
+import Chart from 'chart.js/auto';
 //import bancoDados from '../IndexedDB.js'
 export default {
   methods: {
@@ -282,38 +281,36 @@ export default {
     },
     mounted () {
       const ctx = document.getElementById('myChart');
-      const Chart = require('chart.js');
-      const myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Bruto', 'Despesas', 'Lucro', 'Caixa'],
-        datasets: [{
-            label: 'Financeiro',
-            data: [17632.89, 12348.54, 5284.35, 2389.32 ],
-            backgroundColor: [
-                '#D2691E',
-                '#B22222',
-                '#8B4513',
-                '#CD5C5C'
-            ],
-            borderColor: [
-                '#D2691E',
-                '#B22222',
-                '#8B4513',
-                '#CD5C5C'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
-    myChart;
+      new Chart(ctx, {
+          type: 'bar',
+          data: {
+              labels: ['Bruto', 'Despesas', 'Lucro', 'Caixa'],
+              datasets: [{
+                  label: 'Financeiro',
+                  data: [17632.89, 12348.54, 5284.35, 2389.32 ],
+                  backgroundColor: [
+                      '#D2691E',
+                      '#B22222',
+                      '#8B4513',
+                      '#CD5C5C'
+                  ],
+                  borderColor: [
+                      '#D2691E',
+                      '#B22222',
+                      '#8B4513',
+                      '#CD5C5C'
+                  ],
+                  borderWidth: 1
+              }]
+          },
+          options: {
+              scales: {
+                  y: {
+                      beginAtZero: true
+                  }
+              }
+          }
+      });
     }
 };
 </script>
